@@ -12,7 +12,7 @@
         シャッフル対象：<select id="target" onchange="cardGet(this)"><option></option></select><br>
         <input type="checkbox" id="isWholeChoice" onchange="WholeChoice(this)" checked><label for="isWholeChoice">全体からランダムに <input type="number" id="num" min="0" class="num" id="num" value="10">枚選ぶ</label><br>
         <input type="checkbox" id="imgDisplay" onchange="imgDisplay(this)"><label for="imgDisplay">画像を非表示にする</label><br>
-        <button onclick="randomise()">ランダマイズする</button>
+        <button onclick="randomise()" id="randomButton">ランダマイズする</button>
         <button hidden id="output">出力</button>
     </p>
     <p id="result" hidden></p>

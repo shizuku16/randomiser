@@ -5,12 +5,16 @@ function dataGet(){
         list.insertAdjacentHTML("beforeend",`<option>${JSON.parse(setList).join("</option><option>")}</option>`)
     }
     else{
+        document.getElementById("randomButton").disabled=true;
+        document.getElementById("output").disabled=true;
         fetch(`https://script.google.com/macros/s/AKfycbyqw2uIQjLlPkoBe0TmEQPdQdQWsLKsvFMbbsUlizxmhueQjalE0me3m2LGC5gSvykI2Q/exec`)
         .then(res=>res.json())
         .then(data=>{
             const list=document.getElementById("target")
             list.insertAdjacentHTML("beforeend",`<option>${data.join("</option><option>")}</option>`)
             window.sessionStorage.setItem("setList",JSON.stringify(data))
+            document.getElementById("randomButton").disabled=false;
+            document.getElementById("output").disabled=false;
         })
     }
 }
@@ -25,6 +29,8 @@ async function cardGet(e){
         field.removeChild( field.firstChild );
     }
     let data
+    document.getElementById("randomButton").disabled=true;
+    document.getElementById("output").disabled=true;
     if(window.sessionStorage.getItem(e.value)) data=JSON.parse(window.sessionStorage.getItem(e.value));
     else await fetch(`https://script.google.com/macros/s/AKfycbyqw2uIQjLlPkoBe0TmEQPdQdQWsLKsvFMbbsUlizxmhueQjalE0me3m2LGC5gSvykI2Q/exec`,{
         "method":"post",
@@ -58,6 +64,8 @@ async function cardGet(e){
     document.getElementById("num").max=maxNum;
     WholeChoice(document.getElementById("isWholeChoice"));
     e.disabled=false;
+    document.getElementById("randomButton").disabled=false;
+    document.getElementById("output").disabled=false;
 }
 
 //画像の有無確認する関数
@@ -157,12 +165,12 @@ function copy(data){
 function copyToClipboard (tagValue) {
     if (navigator.clipboard) {
       return navigator.clipboard.writeText(tagValue).then(function () {
-        messageActive()
+        alert("カード情報がコピーされました。")
       })
     } else {
       tagText.select()
       document.execCommand('copy')
-      messageActive()
+      alert("カード情報がコピーされました。")
     }
 }
 
