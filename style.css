@@ -1,0 +1,44 @@
+td,th{
+    border:solid 1px #000000;
+    padding:1px 10px;
+    max-width: 25%;
+}
+table{
+        border-collapse:collapse;
+        padding: 10px;
+}
+
+div.list{
+    margin-left: 2rem;
+}
+img{
+    height: 150px;
+}
+input.num{
+    width: 2rem;
+}
+div#cardTable,.setting,#result{
+    touch-action: manipulation;
+    user-select: none;
+}
+
+#result{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(166, 255, 255);
+    width: fit-content;
+    border-radius:1rem;
+}
+.resultArea{
+    margin: 1rem;
+}
+.bold{
+    font-weight: bold;
+}
+
+img#preview{
+    position: absolute;
+    top: 0%;
+    right: 50%;
+    height: 90%;
+}
